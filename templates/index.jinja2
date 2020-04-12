@@ -1,9 +1,10 @@
 {% extends 'layout.jinja2' %}
 {% block body %}
 <div class = "container">
-    <h1> Hello world again</h1>
     <div class = "jumbotron">
-        Fill out form to get custom page
+        <h1> Hello world again</h1> <br>
+        Fill out form to get custom page <br>
+
         <form action="/custom.html" method="post">
            <div class="form-group">
               <label> First name:</label><br>
@@ -13,6 +14,10 @@
               <label>Last name:</label>
               <input type="text" class='form-control' name="lname">
            </div>
+            <div class="form-group">
+                <label for="formControlRange">How impressed are you with my Website?</label>
+                <input type="range" class="form-control-range" name="formControlRange">
+              </div>
            <input type="submit" value="Submit">
         </form>
     </div>

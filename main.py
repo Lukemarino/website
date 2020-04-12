@@ -15,6 +15,12 @@ def stuff():
 
 @app.route('/custom.html', methods=['POST'])
 def custom():
-    user_first = request.form['fname']
-    user_last = request.form['lname']
-    return 'hi %s %s' %(user_first,user_last)
+    first = request.form['fname']
+    last = request.form['lname']
+    impress =  request.form['formControlRange']
+    if thing < 50 :
+        image.path= 'static/sad.jpg'
+    else:
+        image.path = 'static/stonks.jpg'
+    name = first + "" + last
+    return render_template('custom.jinja2', full_name = name, thing = impress )
