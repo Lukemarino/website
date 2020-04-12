@@ -18,9 +18,9 @@ def custom():
     first = request.form['fname']
     last = request.form['lname']
     impress =  request.form['formControlRange']
-    if thing < 50 :
-        image.path= 'static/sad.jpg'
+    if int(impress) < 50 :
+        image_path= 'static/sad.jpg'
     else:
-        image.path = 'static/stonks.jpg'
+        image_path = 'static/stonks.jpg'
     name = first + "" + last
-    return render_template('custom.jinja2', full_name = name, thing = impress )
+    return render_template('custom.jinja2', full_name = name, thing = impress, image_path = image_path )
