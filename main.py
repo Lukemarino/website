@@ -46,4 +46,5 @@ def like():
     conn.commit()
     cursor.close()
     conn.close()
+    #yo dawg
     return render_template('thanks.jinja2')
