@@ -50,3 +50,4 @@ def like():
     conn.close()
     #yo dawg
     return render_template('thanks.jinja2')
+    #minor change
