@@ -14,14 +14,10 @@ def about():
 def stuff():
     return render_template("stuff.jinja2")
 
-@app.route('/custom.html', methods=['POST'])
+@app.route('/message.html', methods=['POST'])
 def custom():
-    first = request.form['fname']
-    last = request.form['lname']
-    impress =  request.form['formControlRange']
-    if int(impress) < 50 :
-        image_path= 'static/sad.jpg'
-    else:
-        image_path = 'static/stonks.jpg'
-    name = first + "" + last
-    return render_template('custom.jinja2', full_name = name, thing = impress, image_path = image_path )
+    author = request.form['author']
+    message = request.form['message']
+    print("[%s] posted '%s'" % (author,message))
+
+    return render_template('new_message.jinja2')
