@@ -5,6 +5,16 @@
         <h1> Message Board</h1> <br>
         <p class="lead"> Heres some messages</p>
         <hr/>
+        {% for message in messages %}
+        <blockquote class="blockquote">
+            <p class="mb-0">
+                {{ message[1] }} <a href="like.html?rowid={{ message[3] }}" class="btn btn-outline-primary">
+                <i class="fas fa-frog"></i> + {{ message[2] }}</a>
+            </p>
+            <footer class="blockquote-footer">{{ message[0] }}</footer>
+        </blockquote>
+        {% endfor %}
+        <hr/>
         <form action="/message.html" method="POST">
            <div class="form-group">
               <label> Message:</label><br>
