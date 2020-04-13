@@ -24,12 +24,14 @@ def stuff():
 def custom():
     author = request.form['author']
     message = request.form['message']
+
     conn = sqlite3.connect("site_data.db")
     # Add new
-    cursor = conn.execute("INSERT INTO messages VALUES (?, ?,0)" % (author, message))
+    cursor = conn.execute("INSERT INTO messages VALUES (?,?, 0)", (author, message))
     cursor.close()
     conn.commit()
-    print("[%s] posted '%s'" % (author,message))
+    conn.close()
+    print("[%s] posted '%s'" % (author, message))
 
     return render_template('thanks.jinja2')
 
