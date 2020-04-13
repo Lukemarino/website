@@ -39,7 +39,7 @@ def custom():
 def like():
     rowid = request.args['rowid']
     conn = sqlite3.connect("site_data.db")
-    cursor = conn.execute("SELECT Likes from messages WHERE rowid=?", rowid)
+    cursor = conn.execute("SELECT Likes from messages WHERE rowid=?", (rowid, ))
     record = cursor.fetchone()
     likes = record[0]
     print(record)
