@@ -1,9 +1,11 @@
 {% extends 'layout.jinja2' %}
 {% block body %}
 <div class = "container">
-    <div class = "jumbotron">
         <h1> Message Board</h1> <br>
         <p class="lead"> Heres some messages</p>
+        {% for location in msg_locations %}
+            <img class='state-flag' src="http://flags.ox3.in/svg/{{ location[0] }}.svg">
+        {% endfor %}
         <hr/>
         {% for message in messages %}
         <blockquote class="blockquote">
@@ -11,7 +13,7 @@
                 {{ message[1] }} <a href="like.html?rowid={{ message[3] }}" class="btn btn-outline-primary">
                 <i class="fas fa-frog"></i> + {{ message[2] }}</a>
             </p>
-            <footer class="blockquote-footer">{{ message[0] }}</footer>
+            <footer class="blockquote-footer">{{ message[0] }} </footer>
         </blockquote>
         {% endfor %}
         <hr/>
@@ -34,3 +36,4 @@
 </div>
 
 {% endblock %}
+
